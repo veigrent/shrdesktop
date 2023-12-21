@@ -1,5 +1,6 @@
 #!/bin/bash
 
+###### shrdp list
 ###### shrdp [hostname]
 ###### cfgfile like
 #Host lab3-4
@@ -110,6 +111,11 @@ startRdp () {
     fi
     command $cmd $params $Hostname
 }
+
+if [[ "$1" == "list" ]]; then
+    cat "$cfgfile" | grep -iE "^ *host"
+    exit 0
+fi
 
 if [[ "$1" != "" ]]; then
     Host=$1 
