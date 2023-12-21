@@ -109,7 +109,8 @@ startRdp () {
     if [[ "$Pass" != "" ]]; then
         params="$params -p $Pass"
     fi
-    command $cmd $params $Hostname
+    echo "$cmd $params $Hostname"
+    command $cmd $params $Hostname &
 }
 
 if [[ "$1" == "list" ]]; then
